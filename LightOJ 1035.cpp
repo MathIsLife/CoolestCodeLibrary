@@ -34,7 +34,8 @@ vector<int> primes; bool mark[150];
 void sieve (void) {
     memset(mark, true, sizeof mark);
     for (i = 2; i < 120; i++)
-        for (j = i * i; j < 120; j += i) mark[j] = false;
+        for (j = i * i; j < 120; j += i) 
+          mark[j] = false;
     for (i = 2; i < 120; i++)
         if (mark[i]) primes.push_back(i);
 }
@@ -48,7 +49,8 @@ void Kill (void) {
             p = primes[i], e = 0;
             if (p > N) break;
             double tmp = N * 1.0;
-            while (tmp >= 1) tmp /= (p * 1.0), e += floor(tmp);
+            while (tmp >= 1)
+               tmp /= (p * 1.0), e += floor(tmp);
             if (cnt++ != 0) printf(" * ");
             printf("%d (%d)", p, e);
         }
