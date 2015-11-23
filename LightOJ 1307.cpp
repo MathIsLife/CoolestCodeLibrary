@@ -9,7 +9,7 @@
 
         Category: Ad hoc 
 
-        Keys: Triangle Inequality, Binary Search
+        Keys: Binary Search, Triangle Inequality
 
 */
 
