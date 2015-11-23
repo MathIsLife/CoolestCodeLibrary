@@ -7,7 +7,9 @@
 
         LightOJ 1002 - Country Roads
 
-        Approach: Modified Dijkstra
+        Category: Graph Theory, Shortest Path
+
+        Keys: Modified Dijkstra
 
 */
 
