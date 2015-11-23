@@ -34,7 +34,7 @@ int T, N, i, j, k, t, ret;
 void Kill (void) {
     scanf("%d", &T);
     for (k = 1; k <= T; k++) {
-	scanf("%d", &N); ret = 0; V.clear();
+	scanf("%d", &N), ret = 0, V.clear();
 	for (j = 0; j < N; j++) scanf("%d", &t), V.push_back(t);
 	sort(V.begin(), V.end());
 	for (i = 0; i < N; i++) {
