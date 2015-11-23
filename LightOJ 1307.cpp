@@ -5,11 +5,11 @@
      |  \ |   |  |  \     |  |   | |     | |  \
     _|   \|  _|_ |   \ \__)  |   |  \___/  |   \
 
-        LightOJ 1307 - Counting Triangles
+        LightOJ 1035 - Intelligent Factorial Factorization
 
-        Category: Ad hoc 
+        Category: Number Theory, Implementation
 
-        Keys: Triangle Inequality, Binary Search
+        Keys: Legendre's Formula, Sieve of Eratosthenes
 
 */
 
@@ -32,19 +32,19 @@ vector<int> V;
 int T, N, i, j, k, t, ret;
 
 void Kill (void) {
-	scanf("%d", &T);
-	for (k = 1; k <= T; k++) {
-		scanf("%d", &N); ret = 0; V.clear();
-		for (j = 0; j < N; j++) scanf("%d", &t), V.push_back(t);
-		sort(V.begin(), V.end());
-		for (i = 0; i < N; i++) {
-			for (j = i + 1; j < N; j++) {
-				t = lower_bound(V.begin(), V.end(), V[i] + V[j]) - V.begin();
-				ret += (t - j - 1);
-			}
-		}
-		printf("Case %d: %d\n", k, ret);
+    scanf("%d", &T);
+    for (k = 1; k <= T; k++) {
+	scanf("%d", &N); ret = 0; V.clear();
+	for (j = 0; j < N; j++) scanf("%d", &t), V.push_back(t);
+	sort(V.begin(), V.end());
+	for (i = 0; i < N; i++) {
+	    for (j = i + 1; j < N; j++) {
+		t = lower_bound(V.begin(), V.end(), V[i] + V[j]) - V.begin();
+		ret += (t - j - 1);
+	    }
 	}
+	printf("Case %d: %d\n", k, ret);
+    }
 }
 
 int main () {
