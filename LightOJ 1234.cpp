@@ -42,8 +42,7 @@ void Fill (void) {
 void Kill (void) {
     scanf("%d", &T);
     for (k = 1; k <= T; k++) {
-        scanf("%d", &n);
-        printf("Case %d: ", k); 
+        scanf("%d", &n), printf("Case %d: ", k); 
         bernouli = 1/(2.0 * n) - 1/(12.0 * n * n) + 1/(120.0 * n * n * n * n);
         if (n <= MAX) printf("%0.10lf\n", H[n]);
         else printf("%0.10lf\n", log(n) + gamma + bernouli);
