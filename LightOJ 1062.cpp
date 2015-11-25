@@ -37,7 +37,7 @@ void Kill (void) {
         lo = 0, hi = min(x, y);
         while (lo < hi) {
             d = (lo + hi)/2;
-            p = sqrt(x*x - d*d), q = sqrt(y*y - d*d);
+            p = sqrt(x * x - d * d), q = sqrt(y * y - d * d);
             cmp = (p * q)/(p + q);
             if (abs(cmp - c) <= eps) break;
             else if (cmp > c) lo = d;
