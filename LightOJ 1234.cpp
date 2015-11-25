@@ -32,7 +32,7 @@ typedef unsigned long long ui64;
 #define gamma 0.5772156649
 // Euler-Mascheroni constant 
 
-int T, n, j, k; double H[MAX + 5];
+int T, n, j, k; double H[MAX + 5], bernouli;
 
 void Fill (void) {
     H[1] = 1;
@@ -44,7 +44,7 @@ void Kill (void) {
     for (k = 1; k <= T; k++) {
         scanf("%d", &n);
         printf("Case %d: ", k); 
-        double bernouli = 1/(2.0 * n) - 1/(12.0 * n * n) + 1.0/(120.0 * n * n * n * n);
+        bernouli = 1/(2.0 * n) - 1/(12.0 * n * n) + 1/(120.0 * n * n * n * n);
         if (n <= MAX) printf("%0.10lf\n", H[n]);
         else printf("%0.10lf\n", log(n) + gamma + bernouli);
     }
