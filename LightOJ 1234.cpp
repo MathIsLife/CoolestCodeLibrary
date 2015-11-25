@@ -29,8 +29,7 @@ typedef unsigned long long ui64;
 #define mod 1000000007
 
 #define MAX 10000
-#define gamma 0.5772156649
-// Euler-Mascheroni constant 
+#define gamma 0.5772156649 // Euler-Mascheroni constant 
 
 int T, n, j, k; double H[MAX + 5], bernouli;
 
