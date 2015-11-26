@@ -8,7 +8,7 @@
         LightOJ 1065 - Number Sequence
 
         Category - Mathematics, Linear Algebra
-        
+
         Keys: Matrix Exponentiation, Big Mod
 
 */
@@ -54,24 +54,20 @@ void Mat_Exp (i64 X[][3], i64 Ret[][3], i64 n) {
     } return;
 }
 
-void Solve (void) {
-    m = pow(10, m);
-    printf("Case %lld: ", k);
-    if (n == 0) printf("%lld\n", a);
-    else if (n == 1) printf("%lld\n", b);
-    else {
-        i64 Base[3][3] = {{1, 1}, {1, 0}};
-        Mat_Exp(Base, Result, n);
-        Val = b * Result[1][0] + a * Result[1][1];
-        printf("%lld\n", Val % m);
-    }
-}
-
 void Kill (void) {
     scanf("%lld", &T);
     for (k = 1; k <= T; k++) {
         scanf("%lld %lld %lld %lld", &a, &b, &n, &m);
-        Solve();
+        m = pow(10, m);
+        printf("Case %lld: ", k);
+        if (n == 0) printf("%lld\n", a);
+        else if (n == 1) printf("%lld\n", b);
+        else {
+            i64 Base[3][3] = {{1, 1}, {1, 0}};
+            Mat_Exp(Base, Result, n);
+            Val = b * Result[1][0] + a * Result[1][1];
+            printf("%lld\n", Val % m);
+        }
     }
 }
 
