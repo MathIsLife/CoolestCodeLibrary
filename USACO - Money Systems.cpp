@@ -37,7 +37,7 @@ i64 DP[MAX][30], V, N, i, Coin[30];
 i64 Call (i64 n, i64 k) {
     if (n == 0) return 1;
     if (n < 0) return 0;
-    if (k <= 0 && n >= 1) return 0;
+    if (k <= 0) return 0;
     if (DP[n][k] != -1) return DP[n][k];
     return DP[n][k] = Call(n, k - 1) + Call(n - Coin[k], k);
 }
