@@ -53,8 +53,8 @@ void Kill (void) {
         if (DP[i])
             for (j = 0; j < cnt; j++)
                 if (S.substr(i, Prims[j].length()) == Prims[j])
-                    Res = max(Res, i + Prims[j].length()),
-                    DP[i + Prims[j].length()] = true;
+                    DP[i + Prims[j].length()] = true,
+                    Res = max(Res, i + Prims[j].length());
     fout << Res << endl;
 }
 
