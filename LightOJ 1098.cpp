@@ -29,17 +29,18 @@ typedef unsigned long long ui64;
 #define mod 1000000007
 
 i64 CSOD (i64 n) {
-	i64 s, t, sq = floor(sqrt(n)), ret = 0;
-	for (s = 2; s <= sq; s++) 
-		t = n / s, 
-		ret += s * (t - s + 1) + t * (t + 1)/2 - s * (s + 1)/2;
-	return ret;
+    i64 s, t, sq = floor(sqrt(n)), ret = 0;
+    for (s = 2; s <= sq; s++) 
+	t = n / s, 
+	ret += s * (t - s + 1) + t * (t + 1)/2 - s * (s + 1)/2;
+    return ret;
 }
 
 void Kill (void) {
-	i64 T, N, k; scanf("%lld", &T);
-	for (k = 1; k <= T; k++)
-		scanf("%lld", &N), printf("Case %lld: %lld\n", k, CSOD(N));
+    i64 T, N, k; scanf("%lld", &T);
+    for (k = 1; k <= T; k++)
+	scanf("%lld", &N), 
+	printf("Case %lld: %lld\n", k, CSOD(N));
 }
 
 int main () {
