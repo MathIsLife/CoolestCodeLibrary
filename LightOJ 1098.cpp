@@ -31,7 +31,8 @@ typedef unsigned long long ui64;
 i64 CSOD (i64 n) {
 	i64 s, t, sq = floor(sqrt(n)), ret = 0;
 	for (s = 2; s <= sq; s++) 
-		t = n/s, ret += s * (t - s + 1) + t * (t + 1)/2 - s * (s + 1)/2;
+		t = n / s, 
+		ret += s * (t - s + 1) + t * (t + 1)/2 - s * (s + 1)/2;
 	return ret;
 }
 
