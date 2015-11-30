@@ -35,8 +35,7 @@ int T, n, j, k; double H[MAX + 5], bernouli;
 
 void Fill (void) {
     H[1] = 1;
-    for (j = 2; j <= MAX; j++) 
-        H[j] = H[j - 1] + 1/(1.0 * j);
+    for (j = 2; j <= MAX; j++) H[j] = H[j - 1] + 1/(1.0 * j);
 }
 
 void Kill (void) {
