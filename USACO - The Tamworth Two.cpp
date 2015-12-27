@@ -41,34 +41,35 @@ bool Valid (int x, int y) {
 }
 
 void Move (void) {
-	if (Valid(a + dx[F], b + dy[F])) a += dx[F], b += dy[F];
-	else F = (F + 1) % 4;
-	
-	if (Valid(c + dx[C], d + dy[C])) c += dx[C], d += dy[C];
-	else C = (C + 1) % 4;
+    if (Valid(a + dx[F], b + dy[F])) a += dx[F], b += dy[F];
+    else F = (F + 1) % 4;
+    
+    if (Valid(c + dx[C], d + dy[C])) c += dx[C], d += dy[C];
+    else C = (C + 1) % 4;
 }
 
 int main () {
-	freopen("ttwo.in", "r", stdin);
-	freopen("ttwo.out", "w", stdout);
+    freopen("ttwo.in", "r", stdin);
+    freopen("ttwo.out", "w", stdout);
 	
-	for (i = 1; i <= 10; i++) {
-		for (j = 1; j <= 10; j++) {
-			cin >> Grid[i][j];
-			if (Grid[i][j] == 'F') a = i, b = j;
-			else if (Grid[i][j] == 'C') c = i, d = j;
-		}
+    for (i = 1; i <= 10; i++) {
+	for (j = 1; j <= 10; j++) {
+    	    cin >> Grid[i][j];
+	    if (Grid[i][j] == 'F') a = i, b = j;
+	    else if (Grid[i][j] == 'C') c = i, d = j;
 	}
+    }
 	
-	F = 0, C = 0, t = 0;
-	for (i = 0; i < lim; i++) {
-		Move(), t++;
-		if (a == c && b == d) {
-			cout << t << endl;
-			return 0;
-		}
+    F = 0, C = 0, t = 0;
+    for (i = 0; i < lim; i++) {
+	Move(), t++;
+	if (a == c && b == d) {
+	    cout << t << endl;
+	    return 0;
 	}
+    }
 	
-	cout << 0 << endl;
+    cout << 0 << endl;
     return 0;
 }
+
