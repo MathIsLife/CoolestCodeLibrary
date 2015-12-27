@@ -48,7 +48,7 @@ void Move (void) {
     else C = (C + 1) % 4;
 }
 
-int main () {
+int main() {
     freopen("ttwo.in", "r", stdin);
     freopen("ttwo.out", "w", stdout);
 	
