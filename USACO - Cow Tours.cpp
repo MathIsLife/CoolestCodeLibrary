@@ -36,52 +36,53 @@ node A[MAX]; string row;
 double Dist[MAX][MAX], Far[MAX], Ret;
 
 double Length (node A, node B) {
-	return hypot(A.x - B.x, A.y - B.y);
+    return hypot(A.x - B.x, A.y - B.y);
 }
 
 void Fill (void) {
-	for (i = 0; i < MAX; i++)
-		for (j = 0; j < MAX; j++)
-			Dist[i][j] = inf;
+    for (i = 0; i < MAX; i++)
+	for (j = 0; j < MAX; j++)
+	    Dist[i][j] = inf;
 }
 
 void Read (void) {
-	cin >> N;
-	for (i = 1; i <= N; i++) cin >> A[i].x >> A[i].y;
-	for (i = 1; i <= N; i++) {
-		cin >> row;
-		for (j = 1; j <= N; j++) if (row[j - 1] - '0') 
-			Dist[i][j] = Length(A[i], A[j]);
-	}
+    cin >> N;
+    for (i = 1; i <= N; i++) cin >> A[i].x >> A[i].y;
+    for (i = 1; i <= N; i++) {
+	cin >> row;
+	for (j = 1; j <= N; j++) if (row[j - 1] - '0') 
+	    Dist[i][j] = Length(A[i], A[j]);
+    }
 }
 
 void Floyd_Warshall (void) {
-	for (k = 1; k <= N; k++)
-		for (i = 1; i <= N; i++)
-			for (j = 1; j <= N; j++)
-				Dist[i][j] = min(Dist[i][j], Dist[i][k] + Dist[k][j]);
-	for (i = 1; i <= N; i++) Dist[i][i] = 0;
+    for (k = 1; k <= N; k++)
+	for (i = 1; i <= N; i++)
+	    for (j = 1; j <= N; j++)
+		Dist[i][j] = min(Dist[i][j], Dist[i][k] + Dist[k][j]);
+    
+    for (i = 1; i <= N; i++) Dist[i][i] = 0;
 }
 
 void Farthest (void) {
     memset(Far, 0, sizeof Far);
     for (i = 1; i <= N; i++)
-	    for (j = 1; j <= N; j++)
-		    if (Dist[i][j] != inf)
-                Far[i] = max(Far[i], Dist[i][j]);
+	for (j = 1; j <= N; j++)
+	    if (Dist[i][j] != inf)
+		Far[i] = max(Far[i], Dist[i][j]);
 }
 
 void Connect_And_Check (void) {
-	Ret = inf;
-	for (i = 1; i <= N; i++)
-		for (j = 1; j <= N; j++)
-			if (Dist[i][j] == inf) 
-				Ret = min(Ret, Far[i] + Length(A[i], A[j]) + Far[j]);
+    Ret = inf;
+    for (i = 1; i <= N; i++)
+	for (j = 1; j <= N; j++)
+	    if (Dist[i][j] == inf) 
+		Ret = min(Ret, Far[i] + Length(A[i], A[j]) + Far[j]);
 }
 
 void Print (void) {
-	for (i = 1; i <= N; i++) Ret = max(Ret, Far[i]);
-	printf("%0.6lf\n", Ret);
+    for (i = 1; i <= N; i++) Ret = max(Ret, Far[i]);
+    printf("%0.6lf\n", Ret);
 }
 
 int main() {
@@ -97,3 +98,4 @@ int main() {
     
     return 0;
 }
+
