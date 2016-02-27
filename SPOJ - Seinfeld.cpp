@@ -1,4 +1,5 @@
 /*
+
      |\   |  `|` |``\  ```|` |   |  /```\  |``\
      | \  |   |  |__/     |  |___| |     | |__/
      |  \ |   |  |  \     |  |   | |     | |  \
@@ -9,6 +10,7 @@
     	Category: Ad hoc
     	
     	Keys: Compression, Simplification
+    	
 */
 
 #include <bits/stdc++.h>
@@ -29,30 +31,30 @@ typedef unsigned long long ui64;
 string S; int L, i, Ret, Case = 1; 
 
 int main() {	
-	cin.tie(nullptr);
-	ios_base::sync_with_stdio(0);
+    cin.tie(nullptr);
+    ios_base::sync_with_stdio(0);
 	
-	while (Case++) {
-		cin >> S; if (S[0] == '-') break;
+    while (Case++) {
+	cin >> S; if (S[0] == '-') break;
 		
-		stack <char> Stack; L = S.length();
+	stack <char> Stack; L = S.length();
 		
-		for (i = 0; i < L; i++) {
-			if (Stack.empty()) Stack.push(S[i]);
-			else if (S[i] == '}' && Stack.top() == '{') Stack.pop();
-			else Stack.push(S[i]);
-		} 
+	for (i = 0; i < L; i++) {
+	    if (Stack.empty()) Stack.push(S[i]);
+	    else if (S[i] == '}' && Stack.top() == '{') Stack.pop();
+	    else Stack.push(S[i]);
+	} 
 		
-		S = ""; int open = 0, close = 0;
-		
-		while (!Stack.empty()) 
-			Stack.top() == '{' ? open++ : close++, Stack.pop();
-		
-		Ret = open/2 + close/2 + 2 * (open % 2);
-		cout << Case - 1 << ". " << Ret << endl;
-	}
+	S = ""; int open = 0, close = 0;
 	
-	cout.flush();
-	return 0;
+	while (!Stack.empty()) 
+	    Stack.top() == '{' ? open++ : close++, Stack.pop();
+		
+	Ret = open/2 + close/2 + 2 * (open % 2);
+	cout << Case - 1 << ". " << Ret << endl;
+    }
+	
+    cout.flush();
+    return 0;
 }
 
