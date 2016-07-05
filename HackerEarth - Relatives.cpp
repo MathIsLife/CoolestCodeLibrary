@@ -9,7 +9,7 @@
     	
     	Category: Dynamic Programming
     	
-    	Keys: 3 States
+    	Keys: Pointer Walk
     	
 */
 
