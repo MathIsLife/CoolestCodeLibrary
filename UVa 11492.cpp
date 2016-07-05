@@ -65,10 +65,6 @@ int Dijkstra (void) {
 }
 
 int main (int argc, char const *argv[]) {
-    #ifndef ONLINE_JUDGE
-        freopen("input.txt", "r", stdin);
-    #endif // ONLINE_JUDGE
-
     while (scanf("%d", &m) and m) {
         Map.clear();
         for (int i = 0; i < N; ++i) g[i].clear();
