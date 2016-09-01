@@ -23,7 +23,7 @@ stack <int> tour;
 int f, g[N][N], deg[N];
 
 void eulerTour (int u) {
-	if (deg[u] == 0) {
+    if (deg[u] == 0) {
 		tour.push(u);
 		return;
 	}
