@@ -44,7 +44,7 @@ void build (int u, int b, int e) {
 	return;
     }
 
-    int l = u << 1, r = l + 1, m = (b + e) >> 1;
+    int l = u << 1, r = l + 1, m = b + e >> 1;
     build(l, b, m), build(r, m + 1, e);
 
     t[u] = merge(t[l], t[r]);
@@ -54,7 +54,7 @@ node query (int u, int b, int e, int p, int q) {
     if (b > q or e < p) return node(-INF, -INF, 0, -INF);
     if (b >= p and e <= q) return t[u];
 
-    int l = u << 1, r = l + 1, m = (b + e) >> 1;
+    int l = u << 1, r = l + 1, m = b + e >> 1;
     node qleft = query(l, b, m, p, q), qright = query(r, m + 1, e, p, q);
     return merge(qleft, qright);
 }
