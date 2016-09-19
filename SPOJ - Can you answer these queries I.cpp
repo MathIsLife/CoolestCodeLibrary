@@ -46,7 +46,6 @@ void build (int u, int b, int e) {
 
     int l = u << 1, r = l + 1, m = b + e >> 1;
     build(l, b, m), build(r, m + 1, e);
-
     t[u] = merge(t[l], t[r]);
 }
 
