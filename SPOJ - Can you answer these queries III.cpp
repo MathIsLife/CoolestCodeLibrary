@@ -22,7 +22,7 @@ const int INF = 1e9 + 10;
 
 struct node {
 	int pre, suf, sum, best;
-	node () {}
+	node () {} 
 	node (int a, int b, int c, int d) : pre(a), suf(b), sum(c), best(d) {}
 };
 
