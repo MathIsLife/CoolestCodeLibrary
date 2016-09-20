@@ -9,7 +9,7 @@
     	
     	Category: Data Structures
     	
-    	Keys: Offline Processing, Fenwick Tree, Sorting
+    	Keys: Offline Processing, Fenwick Tree, Sorting, Two Pointer
     	
 */
 
