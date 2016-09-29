@@ -9,7 +9,7 @@
     	
     	Category: Data Structures
     	
-    	Keys: Square Root Decomposition, Sorting, Binary Search
+    	Keys: Square Root Decomposition, Sorting, Binary Search, Optimizing Constant Factor
     	
 */
 
