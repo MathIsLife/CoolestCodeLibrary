@@ -1,3 +1,18 @@
+/*
+
+     |\   |  `|` |``\  ```|` |   |  /```\  |``\
+     | \  |   |  |__/     |  |___| |     | |__/
+     |  \ |   |  |  \     |  |   | |     | |  \
+    _|   \|  _|_ |   \ \__)  |   |  \___/  |   \
+    
+    	TopCoder - BipartiteConstruction
+    	
+    	Category: Mathematics
+    	
+    	Keys: Constructive Algorithm, Combinatorics
+    	
+*/
+
 #include <bits/stdc++.h>
 
 using namespace std;
