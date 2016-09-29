@@ -1,3 +1,18 @@
+/*
+
+     |\   |  `|` |``\  ```|` |   |  /```\  |``\
+     | \  |   |  |__/     |  |___| |     | |__/
+     |  \ |   |  |  \     |  |   | |     | |  \
+    _|   \|  _|_ |   \ \__)  |   |  \___/  |   \
+    
+    	TopCoder - DarkMatterParticles
+    	
+    	Category: Dynamic Programming
+    	
+    	Keys: Coin Change
+    	
+*/
+
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -6,10 +21,9 @@ class DarkMatterParticles {public: string SplitParticles (int n, int k, vector <
 
 const int N = 1010;
 
-bool vis[N];
 int currSize;
+bool vis[N], dp[N][N];
 vector <int> g[N], comp;
-bool dp[N][N];
 
 void dfs (int u) {
     if (vis[u]) return;
