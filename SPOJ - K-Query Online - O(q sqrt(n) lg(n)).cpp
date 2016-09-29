@@ -5,7 +5,7 @@
      |  \ |   |  |  \     |  |   | |     | |  \
     _|   \|  _|_ |   \ \__)  |   |  \___/  |   \
     
-    	SPOJ - K-Query Online (KQUERYO)
+    	SPOJ - K-Query Online (KQUERYO) - O(q sqrt(n) lg(n))
     	
     	Category: Data Structures
     	
