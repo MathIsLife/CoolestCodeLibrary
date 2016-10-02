@@ -5,9 +5,9 @@
      |  \ |   |  |  \     |  |   | |     | |  \
     _|   \|  _|_ |   \ \__)  |   |  \___/  |   \
 
-    	   Codeforces 339D - Xenia and Bit Operation
+        Codeforces 339D - Xenia and Bit Operation
 
-    	   Category: Data Structure
+        Category: Data Structure
 
         Keys: Segment Tree, I/O Optimization
 
