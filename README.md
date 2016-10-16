@@ -1,2 +1,2 @@
 # CodeTheFuckOut
-Solutions to the programming problems I've solved.
+Solutions to some of the programming problems I've solved.
