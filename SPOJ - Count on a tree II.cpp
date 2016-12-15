@@ -80,13 +80,8 @@ int lca (int u, int v) {
 
 void update (int x) {
     int u = flat[x];
-    if (mark[u]) {
-        --cnt[w[u]];
-        if (cnt[w[u]] == 0) --ans;
-    } else {
-        if (cnt[w[u]] == 0) ++ans;
-        ++cnt[w[u]];
-    }
+    if (mark[u] and --cnt[w[u]] == 0) --ans;
+    if (!mark[u] and cnt[w[u]]++ == 0) ++ans;
     mark[u] ^= 1;
 }
 
