@@ -40,15 +40,6 @@ int t, n, m, a[N], sum[N];
 int rangeMin[4 * N], rangeMax[4 * N];
 node rangeMaxSum[4 * N];
 
-node merge (node x, node y) {
-    node z;
-    z.pre = max(x.pre, x.sum + y.pre);
-    z.suf = max(y.suf, y.sum + x.suf);
-    z.sum = x.sum + y.sum;
-    z.best = max(max(x.best, y.best), x.suf + y.pre);
-    return z;
-}
-
 void init_rmq (int u, int b, int e) {
     if (b == e) {
 	rangeMin[u] = rangeMax[u] = sum[b - 1];
