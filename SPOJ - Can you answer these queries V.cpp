@@ -26,6 +26,14 @@ struct node {
     node (int a, int b, int c, int d) {
 	pre = a, suf = b, sum = c, best = d;
     }
+    node operator + (const node &x) const {
+	node z;
+	z.pre = max(pre, sum + x.pre);
+	z.suf = max(x.suf, x.sum + suf);
+	z.sum = x.sum + sum;
+	z.best = max(max(x.best, best), suf + x.pre);
+	return z;
+    }
 };
 
 int t, n, m, a[N], sum[N];
@@ -59,7 +67,7 @@ void init_maxSum (int u, int b, int e) {
     }
     int l = u << 1, r = l | 1, m = b + e >> 1;
     init_maxSum(l, b, m), init_maxSum(r, m + 1, e);
-    rangeMaxSum[u] = merge(rangeMaxSum[l], rangeMaxSum[r]);
+    rangeMaxSum[u] = rangeMaxSum[l] + rangeMaxSum[r];
 }
 
 int query_rmq (int u, int b, int e, int p, int q, int flag) {
@@ -77,7 +85,7 @@ node query_maxSum (int u, int b, int e, int p, int q) {
     int l = u << 1, r = l | 1, m = b + e >> 1;
     node left = query_maxSum(l, b, m, p, q);
     node right = query_maxSum(r, m + 1, e, p, q);
-    return merge(left, right);
+    return left + right;
 }
 
 int solve_disjoint (int w, int x, int y, int z) {
