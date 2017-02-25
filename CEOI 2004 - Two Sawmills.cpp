@@ -17,7 +17,7 @@
  
 using namespace std;
 
-const int N = 2e5 + 10;
+const int N = 2e4 + 10;
 
 int n;
 long long a[N];
