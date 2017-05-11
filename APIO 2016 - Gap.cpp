@@ -32,7 +32,6 @@ ll findGap (int subTask, int n) {
       ret = max(ret, r - new_r);
       l = new_l, r = new_r;
     }
-    ret = max(ret, r - l);
   } else {
     ll block = (r - l + n - 3)/(n - 1);
     for (ll i = l + 1, j = i + block; i < r; i += block, j += block) {
@@ -44,8 +43,8 @@ ll findGap (int subTask, int n) {
         l = new_r;
       }
     }
-    ret = max(ret, r - l);
   }
+  ret = max(ret, r - l);
   return ret;
 }
 
