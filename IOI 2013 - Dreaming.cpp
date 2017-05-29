@@ -44,43 +44,43 @@ void dfs (int u, int from, int far, int flag) {
       par[e.to] = edge(u, e.cost);
     }
     dfs(e.to, u, far + e.cost, flag);
-	}
+  }
 }
 
 int travelTime (int N, int M, int L, int A[], int B[], int T[]) {
-	for (int i = 0; i < M; ++i) {
-		g[A[i]].emplace_back(B[i], T[i]);
-		g[B[i]].emplace_back(A[i], T[i]);
-	}
+  for (int i = 0; i < M; ++i) {
+    g[A[i]].emplace_back(B[i], T[i]);
+    g[B[i]].emplace_back(A[i], T[i]);
+  }
 
-	vector <int> R;
-	int ret = 0;
-	for (int i = 0; i < N; ++i) {
-		if (vis[i]) continue;
-		maxDist = -1;
-		dfs(i, i, 0, 0);
-		int one = at;
-		maxDist = -1;
-		dfs(one, one, 0, 1);
-		int two = at;
+  vector <int> R;
+  int ret = 0;
+  for (int i = 0; i < N; ++i) {
+    if (vis[i]) continue;
+    maxDist = -1;
+    dfs(i, i, 0, 0);
+    int one = at;
+    maxDist = -1;
+    dfs(one, one, 0, 1);
+    int two = at;
 		
-		ret = max(ret, maxDist);
-		
-		int half = maxDist >> 1;
-		int radius = 0;
-		for (int v = two; v != one; v = par[v].to) {
-			if (radius + par[v].cost > half) {
-				radius = min(radius + par[v].cost, maxDist - radius);
-				break;
-			}
-			radius += par[v].cost;
-		}
-		R.push_back(radius);
-	}
+    ret = max(ret, maxDist);
+	
+    int half = maxDist >> 1;
+    int radius = 0;
+    for (int v = two; v != one; v = par[v].to) {
+      if (radius + par[v].cost > half) {
+	radius = min(radius + par[v].cost, maxDist - radius);
+	break;
+      }
+      radius += par[v].cost;
+    }
+    R.push_back(radius);
+  }
 
-	sort(R.rbegin(), R.rend());
-	if (R.size() > 1) ret = max(ret, R[0] + R[1] + L);
-	if (R.size() > 2) ret = max(ret, R[1] + R[2] + L + L);
-	return ret;
+  sort(R.rbegin(), R.rend());
+  if (R.size() > 1) ret = max(ret, R[0] + R[1] + L);
+  if (R.size() > 2) ret = max(ret, R[1] + R[2] + L + L);
+  return ret;
 }
 
