@@ -31,19 +31,19 @@ int maxDist, at;
 edge par[MAX];
 
 void dfs (int u, int from, int far, int flag) {
-	if (flag) {
-		vis[u] = 1;
-	}
-	if (far > maxDist) {
-		maxDist = far;
-		at = u;
-	}
-	for (edge e : g[u]) {
-		if (e.to == from) continue;
-		if (flag) {
-			par[e.to] = edge(u, e.cost);
-		}
-		dfs(e.to, u, far + e.cost, flag);
+  if (flag) {
+    vis[u] = 1;
+  }
+  if (far > maxDist) {
+    maxDist = far;
+    at = u;
+  }
+  for (edge e : g[u]) {
+    if (e.to == from) continue;
+    if (flag) {
+      par[e.to] = edge(u, e.cost);
+    }
+    dfs(e.to, u, far + e.cost, flag);
 	}
 }
 
