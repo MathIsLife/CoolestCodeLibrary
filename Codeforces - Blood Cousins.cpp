@@ -93,7 +93,10 @@ int main() {
   for (int i = 1; i <= m; ++i) {
     int u, k;
     scanf("%d %d", &u, &k);
-    int v = ancestor(u, k);
+    if (h[u] <= k) {
+      continue;
+    }
+    int v = ancestor(u, k); 
     q[v].emplace_back(h[u], i);
   }
   for (int root : roots) {
