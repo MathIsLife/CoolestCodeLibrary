@@ -60,7 +60,7 @@ int main() {
   map <int, int> f;
   dfs(1, 1, f);
   for (int i = 1; i <= n; ++i) {
-    printf("%d ", ans[i]);
+    printf("%lld ", ans[i]);
   }
   puts("");
   return 0;
