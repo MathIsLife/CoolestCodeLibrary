@@ -9,7 +9,7 @@
         
         Category: Data Structures
         
-        Keys: Observation, Algebra, Segment Tree
+        Keys: Observation, Segment Tree, Algebra
         
 */
 
