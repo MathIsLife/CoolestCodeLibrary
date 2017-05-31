@@ -17,33 +17,42 @@
 
 using namespace std;
 
-const int N = 123456;
+typedef long long ll;
 
+const int N = 123456;
+const int INF = 1e9 + 10;
+
+ll ans[N];
 int n, c[N];
 vector <int> g[N];
-long long ans[N];
 
-void dfs (int u, int from, map <int, int> &f) {
+void dfs (int u, int from, map <int, ll> &f) {
   for (int v : g[u]) {
     if (v == from) continue;
-    map <int, int> h;
+    map <int, ll> h;
     dfs(v, u, h);
     if (h.size() > f.size()) f.swap(h);
     for (auto it : h) {
+      if (it.first >= INF) {
+        continue;
+      }
       f[it.first] += it.second;
+      if (f[it.first] > f[INF]) {
+        f[INF] = f[it.first];
+        f[INF + 1] = it.first;
+      } else if (f[it.first] == f[INF]) {
+        f[INF + 1] += it.first;
+      }
     }
   }
   ++f[c[u]];
-  int best = 0;
-  for (auto it : f) {
-    best = max(best, it.second);
+  if (f[c[u]] > f[INF]) {
+    f[INF] = f[c[u]];
+    f[INF + 1] = c[u];
+  } else if (f[c[u]] == f[INF]) {
+    f[INF + 1] += c[u];
   }
-  ans[u] = 0;
-  for (auto it : f) {
-    if (it.second == best) {
-      ans[u] += 1LL * it.first;
-    }
-  }
+  ans[u] = f[INF + 1];
 }
 
 int main() {
@@ -57,7 +66,7 @@ int main() {
     g[u].push_back(v);
     g[v].push_back(u);
   }
-  map <int, int> f;
+  map <int, ll> f;
   dfs(1, 1, f);
   for (int i = 1; i <= n; ++i) {
     printf("%lld ", ans[i]);
