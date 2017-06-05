@@ -30,7 +30,7 @@ const int LIM = 60;
 const int INF = 1e9 + 5;
 const int MASK = (1 << 17) + 5;
 
-vector <int> pr;
+vector <int> p;
 data state[N][MASK];
 int n, m, a[N];
 int f[N][MASK];
@@ -52,13 +52,13 @@ int main() {
   }
   for (int i = 2; i <= LIM; ++i) {
     if (is_prime(i)) {
-      pr.push_back(i);
+      p.push_back(i);
     }
   }
-  m = pr.size();
+  m = p.size();
   for (int i = 1; i <= LIM; ++i) {
     for (int j = 0; j < m; ++j) {
-      if (i % pr[j] == 0) {
+      if (i % p[j] == 0) {
         mask[i] |= 1 << j;
       }
     }
