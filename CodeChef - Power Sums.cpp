@@ -183,7 +183,7 @@ int main (int argc, char const *argv[]) {
       for (int i = 0; i < n; ++i) res += bigMod(roots[i], x), res %= MOD;
       printf("%lld ", (res + MOD) % MOD); 
     }
- 
+
     puts("");
   }
   return 0;
