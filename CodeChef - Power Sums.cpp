@@ -81,7 +81,7 @@ polynomial remainder (polynomial f, polynomial g) {
       f.coeff[i + j] -= c * g.coeff[j], f.coeff[i + j] %= MOD;   
   }
  
-  f.deg = g.deg - 1;
+  f.deg = max(0, g.deg - 1);
   while (f.deg and f.coeff[f.deg] == 0) --f.deg;
   return f;
 }
