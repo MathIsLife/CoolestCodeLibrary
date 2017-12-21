@@ -82,8 +82,7 @@ polynomial remainder (polynomial f, polynomial g) {
   }
  
   f.deg = g.deg - 1;
-  while (f.coeff[f.deg] == 0) --f.deg;
-  f.deg = max(f.deg, 0);
+  while (f.deg and f.coeff[f.deg] == 0) --f.deg;
   return f;
 }
  
