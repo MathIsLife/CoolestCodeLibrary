@@ -82,7 +82,7 @@ polynomial remainder (polynomial f, polynomial g) {
   }
  
   f.deg = max(0, g.deg - 1);
-  while (f.deg and f.coeff[f.deg] == 0) --f.deg;
+  while (f.deg > 0 and f.coeff[f.deg] == 0) --f.deg;
   return f;
 }
  
@@ -110,17 +110,17 @@ void findRoots (polynomial f) {
     while (expo) {
       if (expo & 1) r = remainder(product(r, a), f);
       a = remainder(product(a, a), f);
-	expo >>= 1;
-      }
+      expo >>= 1;
+    }
  
-      --r.coeff[0];
-      a = gcd(f, r);
+    --r.coeff[0];
+    a = gcd(f, r);
  
-      if (a.deg > 0 and a.deg < f.deg) {
-	r = quotient(f, a);
-	findRoots(a), findRoots(r);
-	return;
-      }
+    if (a.deg > 0 and a.deg < f.deg) {
+      r = quotient(f, a);
+      findRoots(a), findRoots(r);
+      return;
+    }
   }
 }
  
